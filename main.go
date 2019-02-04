@@ -1,7 +1,7 @@
 // Retrieve summary property for all machines
 // Reference: http://pubs.vmware.com/vsphere-60/topic/com.vmware.wssdk.apiref.doc/vim.VirtualMachine.html
 // Print summary per vm (see also: govc/vm/info.go)
-
+//
 package main
 
 import (
@@ -49,7 +49,7 @@ func main() {
 	}
 
 	for _, vm := range vms {
-		fmt.Printf("%s: %s\n", vm.Summary.Config.Name, vm.Summary.Config.GuestFullName)
+		fmt.Printf("%s: %s %s\n", vm.Summary.Config.Name, vm.Summary.Config.GuestFullName, vm.Summary.Guest.IpAddress)
 	}
 
 	log.Printf(" ")
