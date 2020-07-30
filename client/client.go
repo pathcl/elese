@@ -84,11 +84,10 @@ func processOverride(u *url.URL) {
 }
 
 // NewClient creates a govmomi.Client for use in the examples
-func NewClient(ctx context.Context) (*govmomi.Client, error) {
+func NewClient(ctx context.Context, vcenter string) (*govmomi.Client, error) {
 	flag.Parse()
 
-	// Parse URL from string
-	u, err := soap.ParseURL(*urlFlag)
+	u, err := soap.ParseURL(vcenter)
 	if err != nil {
 		return nil, err
 	}
